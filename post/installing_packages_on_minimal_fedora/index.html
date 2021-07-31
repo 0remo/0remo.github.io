@@ -3,9 +3,9 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
-        <title>Series | Remo Bertschinger</title>
-        <meta name="description" content="Series">
-        <meta property="og:site_name" content="Series" />
+        <title>Installing packages on minimal Fedora - Part 2 | Remo Bertschinger</title>
+        <meta name="description" content="Installing packages on minimal Fedora - Part 2">
+        <meta property="og:site_name" content="Installing packages on minimal Fedora - Part 2" />
         <meta property="og:title" content="Remo Bertschinger" />
         <meta property="og:description" content="I am a fourth year part-time student studying Computer science and working as a Software Developer in Zürich. This website is my little project for keeping track of the things I&#39;ve learned. I&#39;m passionate about programming, learning new skills and building things which are (hopefully) helpful for others. Aside from looking at my screen, you can catch me hiking in the beautiful mountains of Switzerland, riding my racing bike through Zürich or reading a good book."/>
         <meta property="og:image" content="https://0remo.github.io/img/remo_bertschinger.jpg" />
@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="https://0remo.github.io/sass/main.min.b05701d527ec966dc8ee30bfd1e0ee640a134b9cebe9391e74d79a5fd4967e49.css" type="text/css" media="screen" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
     
-    <link rel="alternate" type="application/rss+xml" href="https://0remo.github.io/series/index.xml" title="Remo Bertschinger" />
     </head>
 
 <body>
@@ -84,13 +83,54 @@
   });
 </script>
 
-<br>
-    <h2 class="post-title"><a class="go-back" href="https://0remo.github.io/">
-	<i class="far fa-caret-square-left"></i> </a>Series</h2>
+<section class="intro">
+    
+    <h1 class="post-title"><a class="go-back" href="https://0remo.github.io/post/">
+	      <i class="far fa-caret-square-left"></i></a> Installing packages on minimal Fedora - Part 2</h1>
+    <p class="post-dets">Published on: July 21, 2021
+        | Reading Time: 2 min | Last Modified : July 21, 2021
+        <br>
+    </p>
+    <span class="tags">
         
+        <h5><a class="tag" href='https://0remo.github.io/tags/Linux'>Linux</a></h5>
         
-          
+        <h5><a class="tag" href='https://0remo.github.io/tags/Fedora'>Fedora</a></h5>
         
+    </span>
+    
+    <div class="content">
+        <p><img src="../../img/fedora_wallpaper.jpg" alt="Fedora Wallpaper" title="Fedora wallpaper"></p>
+<p>Now that I have internet access, I&rsquo;ll be able to install packages simply with the package manager.</p>
+<p>First, let&rsquo;s upgrade the existing packages:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo dnf upgrade
+</code></pre></div><p>Let&rsquo;s install @base-x to get video drivers</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo dnf install @base-x
+</code></pre></div><p>Then install a basic text editor for changing config files:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo dnf install nano
+</code></pre></div><p>Now it&rsquo;s time to install a desktop environment. The default desktop environment that ships with Fedora is Gnome. For this spin I&rsquo;ll install KDE Plasma, which has better configurability. To install KDE Plasma, I&rsquo;ll use this command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo dnf install bluedevil breeze-icon-theme colord-kde dolphin gwenview irqbalance kamera kcalc kcharselect kde-gtk-config kde-partitionmanager kde-print-manager kde-settings-pulseaudio kdegraphics-thumbnailers kdeplasma-addons kdialog kdnssd keditbookmarks kf5-akonadi-server-mysql kf5-baloo-file kf5-kipi-plugins kfind khotkeys kmenuedit konsole5 kscreen ksshaskpass kwalletmanager5 kwin okular pam-kwallet phonon-qt5-backend-gstreamer pinentry-qt plasma-breeze plasma-desktop plasma-desktop-doc plasma-drkonqi plasma-nm-l2tp plasma-nm-openconnect plasma-nm-openswan plasma-nm-openvpn plasma-nm-pptp plasma-nm-vpnc plasma-pa plasma-systemmonitor plasma-workspace plasma-workspace-geolocation polkit-kde sddm sddm-breeze sddm-kcm setroubleshoot spectacle
+</code></pre></div><p>The above command is a subset of the packages you receive if you were to run</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo dnf install @kde-desktop-environment
+</code></pre></div><p>or</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo dnf group install KDE Plasma Workspaces
+</code></pre></div><p>Enable sddm and graphical mode:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo systemctl enable sddm
+sudo systemctl set-default graphical.target
+</code></pre></div><p>After the reboot, you should now see KDE Plasma login screen!</p>
+<p>Install some additional groups</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo dnf install @<span style="color:#e6db74">&#34;Hardware Support&#34;</span>
+sudo dnf install @Fonts
+sudo dnf install @<span style="color:#e6db74">&#34;Common NetworkManager Submodules&#34;</span>
+</code></pre></div><p>At last, install <strong>chromium-freeworld</strong> as a browser, which supports more codecs than normal chromium. (E.g. some video formats will not play in chromium.) Optionally, install firefox. In my experience, firefox is usually some Mbps slower than chromium-freeworld.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo dnf install chromium-freeworld
+sudo dnf install firefox
+</code></pre></div><h2 id="references">References</h2>
+<p><a href="https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide">https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide</a></p>
+
+    </div>
+    
+</section>
 <footer id="footer">
     <strong></strong>
     <div class="social">

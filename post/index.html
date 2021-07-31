@@ -26,7 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.80.0" />
     
-    <link rel="stylesheet" href="https://0remo.github.io/sass/main.min.eca01bc04afdc31009da50cdd3c4d114882b03b9c793d370854d116e185ed4d8.css" type="text/css" media="screen" >
+    <link rel="stylesheet" href="https://0remo.github.io/sass/main.min.b05701d527ec966dc8ee30bfd1e0ee640a134b9cebe9391e74d79a5fd4967e49.css" type="text/css" media="screen" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
     
     <link rel="alternate" type="application/rss+xml" href="https://0remo.github.io/post/index.xml" title="Remo Bertschinger" />
@@ -93,13 +93,38 @@
             <div>
               
                 <well class="well">
-                    <h3><a class="link" href="https://0remo.github.io/post/mypost/">A test post</a></h3>
-                    <h4>July 24, 2021 | Reading Time: 1 min </h4>
+                    <h3><a class="link" href="https://0remo.github.io/post/installing_minimal_fedora_on_my_t480/">Installing minimal Fedora on my T480 - Part 1</a></h3>
+                    <h4>July 21, 2021 | Reading Time: 4 min </h4>
                     <span class="tags">
                         
+                        <h5><a class="tag" href='https://0remo.github.io/tags/Linux'>Linux</a></h5>
+                        
+                        <h5><a class="tag" href='https://0remo.github.io/tags/Fedora'>Fedora</a></h5>
+                        
                     </span>
-                    <p>This is some content.
-public static void main(String []args) { System.out.println(&#34;Hello World&#34;); } </p>
+                    <p>Today I will be installing a minimal Fedora 34 setup on my Lenovo T480.
+Fedora is a linux distribution from Red Hat which I&rsquo;ve been using for some years now. It&rsquo;s a very stable distro with few bugs, and I like the minimalistic Gnome Desktop Environment. What I dont&rsquo;t like is that a lot of software I don&rsquo;t need comes preinstalled with the default Environment. The Fedora Installer offers different Base Environments though, differing in the amount of packages that are preinstalled.</p>
+                </well>
+                            
+            </div><br>
+          
+            <div>
+              
+                <well class="well">
+                    <h3><a class="link" href="https://0remo.github.io/post/installing_packages_on_minimal_fedora/">Installing packages on minimal Fedora - Part 2</a></h3>
+                    <h4>July 21, 2021 | Reading Time: 2 min </h4>
+                    <span class="tags">
+                        
+                        <h5><a class="tag" href='https://0remo.github.io/tags/Linux'>Linux</a></h5>
+                        
+                        <h5><a class="tag" href='https://0remo.github.io/tags/Fedora'>Fedora</a></h5>
+                        
+                    </span>
+                    <p>Now that I have internet access, I&rsquo;ll be able to install packages simply with the package manager.
+First, let&rsquo;s upgrade the existing packages:
+sudo dnf upgrade Let&rsquo;s install @base-x to get video drivers
+sudo dnf install @base-x Then install a basic text editor for changing config files:
+sudo dnf install nano Now it&rsquo;s time to install a desktop environment. The default desktop environment that ships with Fedora is Gnome. For this spin I&rsquo;ll install KDE Plasma, which has better configurability.</p>
                 </well>
                             
             </div><br>
@@ -107,6 +132,9 @@ public static void main(String []args) { System.out.println(&#34;Hello World&#34
         
 <footer id="footer">
     <strong></strong>
+    <div class="social">
+        &nbsp; <a href="mailto:bertschinger.remo@outlook.com" target="_blank" rel="noopener" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a> &nbsp;&nbsp; <a href="https://github.com/0remo" target="_blank" rel="noopener" title="Github"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a> &nbsp;
+    </div><strong></strong>
     <p style="color:grey;">© 2021 Remo Bertschinger.  <a href="https://creativecommons.org/licenses/by/4.0/">Some rights reserved</a>.</p>
 </footer>
 </div>

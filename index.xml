@@ -6,18 +6,144 @@
     <description>Recent posts from on Remo Bertschinger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Jul 2021 16:15:46 +0200</lastBuildDate><atom:link href="https://0remo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://0remo.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>A test post</title>
-      <link>https://0remo.github.io/post/mypost/</link>
-      <pubDate>Sat, 24 Jul 2021 16:15:46 +0200</pubDate>
+      <title>Installing minimal Fedora on my T480 - Part 1</title>
+      <link>https://0remo.github.io/post/installing_minimal_fedora_on_my_t480/</link>
+      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://0remo.github.io/post/mypost/</guid>
-      <description>&lt;p&gt;This is some content.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String &lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt;args&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-	System&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello World&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      <guid>https://0remo.github.io/post/installing_minimal_fedora_on_my_t480/</guid>
+      <description>&lt;p&gt;Today I will be installing a minimal Fedora 34 setup on my Lenovo T480.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../img/t480.jpg&#34; alt=&#34;My Lenovo T480&#34; title=&#34;My Lenovo T480&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Fedora is a linux distribution from Red Hat which I&amp;rsquo;ve been using for some years now. It&amp;rsquo;s a very stable distro with few bugs, and I like the minimalistic Gnome Desktop Environment. What I dont&amp;rsquo;t like is that a lot of software I don&amp;rsquo;t need comes preinstalled with the default Environment. The Fedora Installer offers different Base Environments though, differing in the amount of packages that are preinstalled. My prefered option is installing the minimal environment, and then adding any additional packages that I need.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A &amp;ldquo;target&amp;rdquo; machine to install Fedora to. In my case, a Lenovo T480.&lt;/li&gt;
+&lt;li&gt;A VM or second machine running Fedora 34 for downloading packages for the target machine. This is needed because the minimal install doesn&amp;rsquo;t contain drivers for the wifi adapter! Packages will be downloaded on the VM and then transfered via USB stick to the target machine&lt;/li&gt;
+&lt;li&gt;A USB stick for transfering the packages between VM and target machine.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;installation-process&#34;&gt;Installation Process&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://alt.fedoraproject.org/&#34;&gt;Download&lt;/a&gt; the Fedora Server ISO and &lt;a href=&#34;https://docs.fedoraproject.org/en-US/quick-docs/creating-and-using-a-live-installation-image/&#34;&gt;create a Live installation image&lt;/a&gt; using fedora media writer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Press F12 during Boot to boot from the USB. The installation wizard will open.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After configuring my machine in the wizard, this is how it looks like.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;../../img/installation.jpg&#34; alt=&#34;Installation summary&#34; title=&#34;Installation summary&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Notice that I selected &amp;ldquo;Minimal Install&amp;rdquo; in the &amp;ldquo;Software Selection&amp;rdquo;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After a successful installation I log in for the first time. At this point, there is no GUI installed, so all I see is the Linux Terminal and all I can do is issue commands into the shell.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;setting-up-an-internet-connection&#34;&gt;Setting up an internet connection&lt;/h2&gt;
+&lt;h3 id=&#34;installing-firmware&#34;&gt;Installing firmware&lt;/h3&gt;
+&lt;p&gt;Because the minimal installation does not install any wireless firmware, we need to install the packages needed to create a wifi connection ourselves.&lt;/p&gt;
+&lt;p&gt;Check the current wifi status:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;nmcli dev status
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;No device of type &lt;code&gt;wifi&lt;/code&gt; shows up, which means I need to install firmware for my wifi card.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m switching to my VM now and download the driver for my wifi adapter from &lt;a href=&#34;https://www.intel.com/content/www/us/en/support/articles/000005511/wireless.html&#34;&gt;intels website&lt;/a&gt;. Then save the driver to my USB stick.&lt;/p&gt;
+&lt;p&gt;Back on my T480, i proceed with installing the driver:&lt;/p&gt;
+&lt;p&gt;Insert USB into T480.
+Check name of usb&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;lsblk
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Create folder for mount point&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;mkdir usb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Mount usb&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;mount /dev/sda1 /home/remo/usb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Change into USB directory&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /home/remo/usb/iwlwifi-i8265-ucode-22.361476.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Copy the contents of the firmware directory to the &lt;code&gt;/lib/firmware&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo cp iwlwifi* /lib/firmware
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Change to the root directory again&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo cd /
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Unmount the USB&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo umount /dev/sda1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Reboot&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo reboot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;installing-networking-packages&#34;&gt;Installing Networking Packages&lt;/h3&gt;
+&lt;p&gt;These packages will need to be downloaded from my VM to the USB Stick. They should enable networking for the T480.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;iw
+wireless-regdb
+wpa_supplicant
+NetworkManager-wifi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;My USB Stick is mounted on my VM on `/run/media/remo/2033-4C6E``. I download the packages directly to the Stick with this command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo dnf reinstall --downloadonly --downloaddir&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/run/media/remo/2033-4C6E iw
+sudo dnf reinstall --downloadonly --downloaddir&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/run/media/remo/2033-4C6E wireless-regdb
+sudo dnf reinstall --downloadonly --downloaddir&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/run/media/remo/2033-4C6E wpa_supplicant
+sudo dnf reinstall --downloadonly --downloaddir&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/run/media/remo/2033-4C6E NetworkManager-wifi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After the packages are downloaded, I eject the USB from the VM and insert it into my T480. After mounting the USB at &lt;code&gt;/home/remo/usb&lt;/code&gt; (see commands above) i proceed with the installation.&lt;/p&gt;
+&lt;p&gt;Change into USB directory&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /home/remo/usb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Copy the packages to home&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cp iw-5.9-2.fc34.x86_64.rpm ~
+cp wireless-regdb-2020.11.20-2.fc34.noarch.rpm ~
+cp wpa_supplicant-2.9-12.fc34.x86_64.rpm ~
+cp NetworkManager-wifi-1.30.6-1.fc34.x86_64.rpm ~
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Change to the home directory&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /home/remo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install the packages&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo dnf --disablerepo&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\*&lt;/span&gt; install iw-5.9-2.fc34.x86_64.rpm
+sudo dnf --disablerepo&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\*&lt;/span&gt; install wireless-regdb-2020.11.20-2.fc34.noarch.rpm
+sudo dnf --disablerepo&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\*&lt;/span&gt; install wpa_supplicant-2.9-12.fc34.x86_64.rpm
+sudo dnf --disablerepo&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\*&lt;/span&gt; install NetworkManager-wifi-1.30.6-1.fc34.x86_64.rpm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt;: The packages need to be installed in this order, because the latter packages depend on the first. E.g. NetworkManager-wifi needs wireless-regdb, wireless-regdb needs iw.&lt;/p&gt;
+&lt;p&gt;Unmount the USB and reboot.&lt;/p&gt;
+&lt;p&gt;After a reboot, I check the wifi again:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;nmcli dev status
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This time, my home network shows up&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;DEVICE          TYPE        STATE           CONNECTION
+wlp3s0          wifi        connected       Remos_HomeNetwork
+p2p-dev-wlp3s0  wifi-p2p    disconnected    --
+enp0s31f6       ethernet    unavailable     --
+lo              loopback    unmanaged       --
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and I can connect to my wifi with this command&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo nmcli dev wifi connect Remos_HomeNetwork password &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;network-password&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now that we have internet connection, we can download the rest of the packages for the installation easily with the package manager. See you on part 2! 👋&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Installing packages on minimal Fedora - Part 2</title>
+      <link>https://0remo.github.io/post/installing_packages_on_minimal_fedora/</link>
+      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://0remo.github.io/post/installing_packages_on_minimal_fedora/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;../../img/fedora_wallpaper.jpg&#34; alt=&#34;Fedora Wallpaper&#34; title=&#34;Fedora wallpaper&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Now that I have internet access, I&amp;rsquo;ll be able to install packages simply with the package manager.&lt;/p&gt;
+&lt;p&gt;First, let&amp;rsquo;s upgrade the existing packages:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo dnf upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s install @base-x to get video drivers&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo dnf install @base-x
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then install a basic text editor for changing config files:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo dnf install nano
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now it&amp;rsquo;s time to install a desktop environment. The default desktop environment that ships with Fedora is Gnome. For this spin I&amp;rsquo;ll install KDE Plasma, which has better configurability. To install KDE Plasma, I&amp;rsquo;ll use this command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo dnf install bluedevil breeze-icon-theme colord-kde dolphin gwenview irqbalance kamera kcalc kcharselect kde-gtk-config kde-partitionmanager kde-print-manager kde-settings-pulseaudio kdegraphics-thumbnailers kdeplasma-addons kdialog kdnssd keditbookmarks kf5-akonadi-server-mysql kf5-baloo-file kf5-kipi-plugins kfind khotkeys kmenuedit konsole5 kscreen ksshaskpass kwalletmanager5 kwin okular pam-kwallet phonon-qt5-backend-gstreamer pinentry-qt plasma-breeze plasma-desktop plasma-desktop-doc plasma-drkonqi plasma-nm-l2tp plasma-nm-openconnect plasma-nm-openswan plasma-nm-openvpn plasma-nm-pptp plasma-nm-vpnc plasma-pa plasma-systemmonitor plasma-workspace plasma-workspace-geolocation polkit-kde sddm sddm-breeze sddm-kcm setroubleshoot spectacle
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The above command is a subset of the packages you receive if you were to run&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo dnf install @kde-desktop-environment
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo dnf group install KDE Plasma Workspaces
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Enable sddm and graphical mode:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo systemctl enable sddm
+sudo systemctl set-default graphical.target
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After the reboot, you should now see KDE Plasma login screen!&lt;/p&gt;
+&lt;p&gt;Install some additional groups&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo dnf install @&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hardware Support&amp;#34;&lt;/span&gt;
+sudo dnf install @Fonts
+sudo dnf install @&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Common NetworkManager Submodules&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At last, install &lt;strong&gt;chromium-freeworld&lt;/strong&gt; as a browser, which supports more codecs than normal chromium. (E.g. some video formats will not play in chromium.) Optionally, install firefox. In my experience, firefox is usually some Mbps slower than chromium-freeworld.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo dnf install chromium-freeworld
+sudo dnf install firefox
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide&#34;&gt;https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
   </channel>

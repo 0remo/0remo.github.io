@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+        <title>Installing minimal Fedora on my T480 - Part 1 | Remo Bertschinger</title>
+        <meta name="description" content="Installing minimal Fedora on my T480 - Part 1">
+        <meta property="og:site_name" content="Installing minimal Fedora on my T480 - Part 1" />
+        <meta property="og:title" content="Remo Bertschinger" />
+        <meta property="og:description" content="I am a fourth year part-time student studying Computer science and working as a Software Developer in Zürich. This website is my little project for keeping track of the things I&#39;ve learned. I&#39;m passionate about programming, learning new skills and building things which are (hopefully) helpful for others. Aside from looking at my screen, you can catch me hiking in the beautiful mountains of Switzerland, riding my racing bike through Zürich or reading a good book."/>
+        <meta property="og:image" content="https://0remo.github.io/img/remo_bertschinger.jpg" />
+    
+    
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+    
+    <meta name="keywords" content="Remo Bertschinger, blog, programming, tech">
+    <link rel="icon" type="image/svg" href='https://0remo.github.io/img/logo.png'/>
+    <meta name="author" content='remo_bertschinger'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    <link rel="stylesheet" href="https://0remo.github.io/sass/main.min.b05701d527ec966dc8ee30bfd1e0ee640a134b9cebe9391e74d79a5fd4967e49.css" type="text/css" media="screen" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
+    
+    </head>
+
+<body>
+      <div class="line" id="scrollIndicator"></div>
+      <div class="main"><div class="title">
+  <div class="name">
+    <h2><a href="https://0remo.github.io/"
+	   style="text-decoration: none; color: inherit;">Remo Bertschinger</a></h2>
+  </div>
+  <div class="color-scheme">
+    <input type="checkbox" class="checkbox" id="chk" />
+    <label class="label" for="chk">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
+      <div class="ball"></div>
+    </label>
+  </div>
+</div>
+<script>
+  const themeSetter = (theme) => {
+      document.body.classList.toggle('light')
+      localStorage.setItem('theme', theme)
+      blockSwitcher()
+  }
+
+  const blockSwitcher = () => [...document.getElementsByTagName("BLOCKQUOTE")]
+	.forEach(b => b.classList.toggle('light'))
+
+  const styleSwapper = () => {
+      document.body.classList.add('back-transition')
+      if (localStorage.getItem('theme') === 'dark') themeSetter('light')
+      else if (localStorage.getItem('theme') === 'light') themeSetter('dark')
+  }
+
+  if (localStorage.getItem('theme') === 'light'){
+      themeSetter('light')
+      document.addEventListener("DOMContentLoaded", blockSwitcher)
+  }
+ else localStorage.setItem('theme', 'dark')
+
+  document.getElementById('chk').addEventListener('change',styleSwapper);
+
+  window.addEventListener("scroll", () => {
+      let height = document.documentElement.scrollHeight
+          - document.documentElement.clientHeight;
+      if(height >= 500){
+	  let winScroll = document.body.scrollTop
+              || document.documentElement.scrollTop;
+	  let scrolled = (winScroll / height) * 100;
+	  document.getElementById("scrollIndicator").style.width = scrolled + "%";
+      }
+  });
+</script>
+
+<section class="intro">
+    
+    <h1 class="post-title"><a class="go-back" href="https://0remo.github.io/post/">
+	      <i class="far fa-caret-square-left"></i></a> Installing minimal Fedora on my T480 - Part 1</h1>
+    <p class="post-dets">Published on: July 21, 2021
+        | Reading Time: 4 min | Last Modified : July 21, 2021
+        <br>
+    </p>
+    <span class="tags">
+        
+        <h5><a class="tag" href='https://0remo.github.io/tags/Linux'>Linux</a></h5>
+        
+        <h5><a class="tag" href='https://0remo.github.io/tags/Fedora'>Fedora</a></h5>
+        
+    </span>
+    
+    <div class="content">
+        <p>Today I will be installing a minimal Fedora 34 setup on my Lenovo T480.</p>
+<p><img src="../../img/t480.jpg" alt="My Lenovo T480" title="My Lenovo T480"></p>
+<p>Fedora is a linux distribution from Red Hat which I&rsquo;ve been using for some years now. It&rsquo;s a very stable distro with few bugs, and I like the minimalistic Gnome Desktop Environment. What I dont&rsquo;t like is that a lot of software I don&rsquo;t need comes preinstalled with the default Environment. The Fedora Installer offers different Base Environments though, differing in the amount of packages that are preinstalled. My prefered option is installing the minimal environment, and then adding any additional packages that I need.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>A &ldquo;target&rdquo; machine to install Fedora to. In my case, a Lenovo T480.</li>
+<li>A VM or second machine running Fedora 34 for downloading packages for the target machine. This is needed because the minimal install doesn&rsquo;t contain drivers for the wifi adapter! Packages will be downloaded on the VM and then transfered via USB stick to the target machine</li>
+<li>A USB stick for transfering the packages between VM and target machine.</li>
+</ul>
+<h2 id="installation-process">Installation Process</h2>
+<ol>
+<li>
+<p><a href="https://alt.fedoraproject.org/">Download</a> the Fedora Server ISO and <a href="https://docs.fedoraproject.org/en-US/quick-docs/creating-and-using-a-live-installation-image/">create a Live installation image</a> using fedora media writer.</p>
+</li>
+<li>
+<p>Press F12 during Boot to boot from the USB. The installation wizard will open.</p>
+</li>
+<li>
+<p>After configuring my machine in the wizard, this is how it looks like.</p>
+</li>
+</ol>
+<p><img src="../../img/installation.jpg" alt="Installation summary" title="Installation summary"></p>
+<ol start="4">
+<li>
+<p>Notice that I selected &ldquo;Minimal Install&rdquo; in the &ldquo;Software Selection&rdquo;.</p>
+</li>
+<li>
+<p>After a successful installation I log in for the first time. At this point, there is no GUI installed, so all I see is the Linux Terminal and all I can do is issue commands into the shell.</p>
+</li>
+</ol>
+<h2 id="setting-up-an-internet-connection">Setting up an internet connection</h2>
+<h3 id="installing-firmware">Installing firmware</h3>
+<p>Because the minimal installation does not install any wireless firmware, we need to install the packages needed to create a wifi connection ourselves.</p>
+<p>Check the current wifi status:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">nmcli dev status
+</code></pre></div><p>No device of type <code>wifi</code> shows up, which means I need to install firmware for my wifi card.</p>
+<p>I&rsquo;m switching to my VM now and download the driver for my wifi adapter from <a href="https://www.intel.com/content/www/us/en/support/articles/000005511/wireless.html">intels website</a>. Then save the driver to my USB stick.</p>
+<p>Back on my T480, i proceed with installing the driver:</p>
+<p>Insert USB into T480.
+Check name of usb</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">lsblk
+</code></pre></div><p>Create folder for mount point</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir usb
+</code></pre></div><p>Mount usb</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mount /dev/sda1 /home/remo/usb
+</code></pre></div><p>Change into USB directory</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /home/remo/usb/iwlwifi-i8265-ucode-22.361476.0
+</code></pre></div><p>Copy the contents of the firmware directory to the <code>/lib/firmware</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo cp iwlwifi* /lib/firmware
+</code></pre></div><p>Change to the root directory again</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo cd /
+</code></pre></div><p>Unmount the USB</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo umount /dev/sda1
+</code></pre></div><p>Reboot</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo reboot
+</code></pre></div><h3 id="installing-networking-packages">Installing Networking Packages</h3>
+<p>These packages will need to be downloaded from my VM to the USB Stick. They should enable networking for the T480.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">iw
+wireless-regdb
+wpa_supplicant
+NetworkManager-wifi
+</code></pre></div><p>My USB Stick is mounted on my VM on `/run/media/remo/2033-4C6E``. I download the packages directly to the Stick with this command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo dnf reinstall --downloadonly --downloaddir<span style="color:#f92672">=</span>/run/media/remo/2033-4C6E iw
+sudo dnf reinstall --downloadonly --downloaddir<span style="color:#f92672">=</span>/run/media/remo/2033-4C6E wireless-regdb
+sudo dnf reinstall --downloadonly --downloaddir<span style="color:#f92672">=</span>/run/media/remo/2033-4C6E wpa_supplicant
+sudo dnf reinstall --downloadonly --downloaddir<span style="color:#f92672">=</span>/run/media/remo/2033-4C6E NetworkManager-wifi
+</code></pre></div><p>After the packages are downloaded, I eject the USB from the VM and insert it into my T480. After mounting the USB at <code>/home/remo/usb</code> (see commands above) i proceed with the installation.</p>
+<p>Change into USB directory</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /home/remo/usb
+</code></pre></div><p>Copy the packages to home</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cp iw-5.9-2.fc34.x86_64.rpm ~
+cp wireless-regdb-2020.11.20-2.fc34.noarch.rpm ~
+cp wpa_supplicant-2.9-12.fc34.x86_64.rpm ~
+cp NetworkManager-wifi-1.30.6-1.fc34.x86_64.rpm ~
+</code></pre></div><p>Change to the home directory</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /home/remo
+</code></pre></div><p>Install the packages</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo dnf --disablerepo<span style="color:#f92672">=</span><span style="color:#ae81ff">\*</span> install iw-5.9-2.fc34.x86_64.rpm
+sudo dnf --disablerepo<span style="color:#f92672">=</span><span style="color:#ae81ff">\*</span> install wireless-regdb-2020.11.20-2.fc34.noarch.rpm
+sudo dnf --disablerepo<span style="color:#f92672">=</span><span style="color:#ae81ff">\*</span> install wpa_supplicant-2.9-12.fc34.x86_64.rpm
+sudo dnf --disablerepo<span style="color:#f92672">=</span><span style="color:#ae81ff">\*</span> install NetworkManager-wifi-1.30.6-1.fc34.x86_64.rpm
+</code></pre></div><p><strong>Important</strong>: The packages need to be installed in this order, because the latter packages depend on the first. E.g. NetworkManager-wifi needs wireless-regdb, wireless-regdb needs iw.</p>
+<p>Unmount the USB and reboot.</p>
+<p>After a reboot, I check the wifi again:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">nmcli dev status
+</code></pre></div><p>This time, my home network shows up</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">DEVICE          TYPE        STATE           CONNECTION
+wlp3s0          wifi        connected       Remos_HomeNetwork
+p2p-dev-wlp3s0  wifi-p2p    disconnected    --
+enp0s31f6       ethernet    unavailable     --
+lo              loopback    unmanaged       --
+</code></pre></div><p>and I can connect to my wifi with this command</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo nmcli dev wifi connect Remos_HomeNetwork password <span style="color:#e6db74">&#34;network-password&#34;</span>
+</code></pre></div><p>Now that we have internet connection, we can download the rest of the packages for the installation easily with the package manager. See you on part 2! 👋</p>
+
+    </div>
+    
+</section>
+<footer id="footer">
+    <strong></strong>
+    <div class="social">
+        &nbsp; <a href="mailto:bertschinger.remo@outlook.com" target="_blank" rel="noopener" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a> &nbsp;&nbsp; <a href="https://github.com/0remo" target="_blank" rel="noopener" title="Github"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a> &nbsp;
+    </div><strong></strong>
+    <p style="color:grey;">© 2021 Remo Bertschinger.  <a href="https://creativecommons.org/licenses/by/4.0/">Some rights reserved</a>.</p>
+</footer>
+</div>
+    </body>
+</html>
