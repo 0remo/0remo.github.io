@@ -13,8 +13,8 @@
       <pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://0remo.github.io/post/installing_packages_on_minimal_fedora/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;../../img/fedora_wallpaper.jpg&#34; alt=&#34;Fedora Wallpaper&#34; title=&#34;Fedora wallpaper&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Now that I have internet access, I&amp;rsquo;ll be able to install packages simply with the package manager. Let&amp;rsquo;s install a desktop environment and other core packages.&lt;/p&gt;
+      <description>&lt;p&gt;Now that I have internet access, I&amp;rsquo;ll be able to install packages simply with the package manager. Let&amp;rsquo;s install a desktop environment and other core packages.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../img/fedora_wallpaper.jpg&#34; alt=&#34;Fedora Wallpaper&#34; title=&#34;Fedora wallpaper&#34;&gt;&lt;/p&gt;
 &lt;p&gt;First, let&amp;rsquo;s upgrade the existing packages:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo dnf upgrade
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s install @base-x to get video drivers&lt;/p&gt;
