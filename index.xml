@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Remo Bertschinger</title>
-    <link>https://0remo.github.io/</link>
+    <link>https://remobertschinger.ch/</link>
     <description>Recent posts from on Remo Bertschinger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 31 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://0remo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://remobertschinger.ch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Installing packages on minimal Fedora - Part 2</title>
-      <link>https://0remo.github.io/post/installing_packages_on_minimal_fedora/</link>
+      <link>https://remobertschinger.ch/post/installing_packages_on_minimal_fedora/</link>
       <pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://0remo.github.io/post/installing_packages_on_minimal_fedora/</guid>
+      <guid>https://remobertschinger.ch/post/installing_packages_on_minimal_fedora/</guid>
       <description>&lt;p&gt;Now that I have internet access, I&amp;rsquo;ll be able to install packages simply with the package manager. Let&amp;rsquo;s install a desktop environment and other core packages.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../img/fedora_wallpaper.jpg&#34; alt=&#34;Fedora Wallpaper&#34; title=&#34;Fedora wallpaper&#34;&gt;&lt;/p&gt;
 &lt;p&gt;First, let&amp;rsquo;s upgrade the existing packages:&lt;/p&gt;
@@ -44,10 +44,10 @@ sudo dnf install firefox
     
     <item>
       <title>Installing minimal Fedora on my T480 - Part 1</title>
-      <link>https://0remo.github.io/post/installing_minimal_fedora_on_my_t480/</link>
+      <link>https://remobertschinger.ch/post/installing_minimal_fedora_on_my_t480/</link>
       <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://0remo.github.io/post/installing_minimal_fedora_on_my_t480/</guid>
+      <guid>https://remobertschinger.ch/post/installing_minimal_fedora_on_my_t480/</guid>
       <description>&lt;p&gt;Today I will be installing a minimal Fedora 34 setup on my Lenovo T480.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../img/t480.jpg&#34; alt=&#34;My Lenovo T480&#34; title=&#34;My Lenovo T480&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Fedora is a linux distribution from Red Hat which I&amp;rsquo;ve been using for some years now. It&amp;rsquo;s a very stable distro with few bugs, and I like the minimalistic Gnome Desktop Environment. What I dont&amp;rsquo;t like is that a lot of software I don&amp;rsquo;t need comes preinstalled with the default Environment. The Fedora Installer offers different Base Environments though, differing in the amount of packages that are preinstalled. My prefered option is installing the minimal environment, and then adding any additional packages that I need.&lt;/p&gt;

@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Remo Bertschinger</title>
-    <link>https://0remo.github.io/tags/linux/</link>
+    <link>https://remobertschinger.ch/tags/linux/</link>
     <description>Recent content in Linux on Remo Bertschinger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 31 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://0remo.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://remobertschinger.ch/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Installing packages on minimal Fedora - Part 2</title>
-      <link>https://0remo.github.io/post/installing_packages_on_minimal_fedora/</link>
+      <link>https://remobertschinger.ch/post/installing_packages_on_minimal_fedora/</link>
       <pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://0remo.github.io/post/installing_packages_on_minimal_fedora/</guid>
+      <guid>https://remobertschinger.ch/post/installing_packages_on_minimal_fedora/</guid>
       <description>&lt;p&gt;Now that I have internet access, I&amp;rsquo;ll be able to install packages simply with the package manager. Let&amp;rsquo;s install a desktop environment and other core packages.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Installing minimal Fedora on my T480 - Part 1</title>
-      <link>https://0remo.github.io/post/installing_minimal_fedora_on_my_t480/</link>
+      <link>https://remobertschinger.ch/post/installing_minimal_fedora_on_my_t480/</link>
       <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://0remo.github.io/post/installing_minimal_fedora_on_my_t480/</guid>
+      <guid>https://remobertschinger.ch/post/installing_minimal_fedora_on_my_t480/</guid>
       <description>&lt;p&gt;Today I will be installing a minimal Fedora 34 setup on my Lenovo T480.&lt;/p&gt;</description>
     </item>
     
