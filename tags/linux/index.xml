@@ -6,28 +6,24 @@
     <description>Recent content in Linux on Remo Bertschinger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://0remo.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://0remo.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Installing packages on minimal Fedora - Part 2</title>
+      <link>https://0remo.github.io/post/installing_packages_on_minimal_fedora/</link>
+      <pubDate>Sat, 31 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://0remo.github.io/post/installing_packages_on_minimal_fedora/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;../../img/fedora_wallpaper.jpg&#34; alt=&#34;Fedora Wallpaper&#34; title=&#34;Fedora wallpaper&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Now that I have internet access, I&amp;rsquo;ll be able to install packages simply with the package manager. Let&amp;rsquo;s install a desktop environment and other core packages.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Installing minimal Fedora on my T480 - Part 1</title>
       <link>https://0remo.github.io/post/installing_minimal_fedora_on_my_t480/</link>
       <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://0remo.github.io/post/installing_minimal_fedora_on_my_t480/</guid>
-      <description>Today I will be installing a minimal Fedora 34 setup on my Lenovo T480.
-Fedora is a linux distribution from Red Hat which I&amp;rsquo;ve been using for some years now. It&amp;rsquo;s a very stable distro with few bugs, and I like the minimalistic Gnome Desktop Environment. What I dont&amp;rsquo;t like is that a lot of software I don&amp;rsquo;t need comes preinstalled with the default Environment. The Fedora Installer offers different Base Environments though, differing in the amount of packages that are preinstalled.</description>
-    </item>
-    
-    <item>
-      <title>Installing packages on minimal Fedora - Part 2</title>
-      <link>https://0remo.github.io/post/installing_packages_on_minimal_fedora/</link>
-      <pubDate>Wed, 21 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://0remo.github.io/post/installing_packages_on_minimal_fedora/</guid>
-      <description>Now that I have internet access, I&amp;rsquo;ll be able to install packages simply with the package manager.
-First, let&amp;rsquo;s upgrade the existing packages:
-sudo dnf upgrade Let&amp;rsquo;s install @base-x to get video drivers
-sudo dnf install @base-x Then install a basic text editor for changing config files:
-sudo dnf install nano Now it&amp;rsquo;s time to install a desktop environment. The default desktop environment that ships with Fedora is Gnome. For this spin I&amp;rsquo;ll install KDE Plasma, which has better configurability.</description>
+      <description>&lt;p&gt;Today I will be installing a minimal Fedora 34 setup on my Lenovo T480.&lt;/p&gt;</description>
     </item>
     
   </channel>
